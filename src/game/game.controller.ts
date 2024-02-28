@@ -18,12 +18,12 @@ export class GameController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.gameService.findOne(+id);
+    return this.gameService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateGameDto: UpdateGameDto) {
-    return this.gameService.update(+id, updateGameDto);
+    return this.gameService.update(id, updateGameDto);
   }
 
 }

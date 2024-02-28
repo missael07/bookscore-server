@@ -39,15 +39,15 @@ export class GameService {
     return gameList;
   }
 
-  async findOne(gameNumber: number) {
-    return await this.gameModel.findOne({ gameNumber });
+  async findOne(id: string) {
+    return await this.gameModel.findById(id);
   }
 
-  async update(gameNumber: number, updateGameDto: UpdateGameDto) {
+  async update(id: string, updateGameDto: UpdateGameDto) {
 
     const { isWon, runsIn, runsOut } = updateGameDto
 
-    const game = await this.findOne(gameNumber)
+    const game = await this.findOne(id)
 
     game.isWon = isWon;
     game.runsIn = runsIn;
